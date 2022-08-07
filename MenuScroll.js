@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// *** MENU SCROLL by Adrián Gubrica, v1.0 *** //
+// *** MENU SCROLL by Adrián Gubrica, v1.1 *** //
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
@@ -32,6 +32,8 @@ export default class MenuScroll {
   }
 
   init() {
+    this.scroll(document.documentElement.scrollTop)
+
     document.addEventListener('scroll', () => {
       this.scroll(document.documentElement.scrollTop)
     })
