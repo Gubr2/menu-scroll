@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// *** MENU SCROLL by Adrián Gubrica, v1.1 *** //
+// *** MENU SCROLL by Adrián Gubrica, v1.2 *** //
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
@@ -9,6 +9,10 @@
 // ---> selector [string] - Selector for the menu
 // ---> distance [int or float] - Distance from the top, where the scroll effect start to work
 // ---> classToAdd [string] - Specifies the class, that is added to the selector, when scroll effect is initialized
+
+/////////////// Options /////////////////
+
+// ---> Combining with smooth scroll possible by using update([int or float]) function on smooth scroll event
 
 export default class MenuScroll {
   constructor(_options) {
@@ -32,14 +36,14 @@ export default class MenuScroll {
   }
 
   init() {
-    this.scroll(document.documentElement.scrollTop)
+    this.update(document.documentElement.scrollTop)
 
     document.addEventListener('scroll', () => {
-      this.scroll(document.documentElement.scrollTop)
+      this.update(document.documentElement.scrollTop)
     })
   }
 
-  scroll(_value) {
+  update(_value) {
     // [1] Init on given distance
     if (_value > this.distance) {
       // [2] Get the current values & add background class
@@ -69,6 +73,4 @@ export default class MenuScroll {
       }
     }
   }
-
-  scale() {}
 }
