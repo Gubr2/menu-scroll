@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// *** MENU SCROLL by Adrián Gubrica, v1.2 *** //
+// *** MENU SCROLL by Adrián Gubrica, v1.3 *** //
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
@@ -8,7 +8,8 @@
 
 // ---> selector [string] - Selector for the menu
 // ---> distance [int or float] - Distance from the top, where the scroll effect start to work
-// ---> classToAdd [string] - Specifies the class, that is added to the selector, when scroll effect is initialized
+// ---> movementClass [string] - Specifies the class, that is added to the selector, when scroll effect is initialized
+// ---> customScroller[boolean] - Decides, whether the default init() function should be started or not (when having custom scroller, it is better to not start it)
 
 /////////////// Options /////////////////
 
@@ -24,6 +25,7 @@ export default class MenuScroll {
     this.distance = _options.distance
     this.movementClass = _options.movementClass
     this.backgroundClass = _options.backgroundClass
+    this.customScroller = _options.customScroller
 
     // Variables
     this.scrollValues = {
@@ -32,7 +34,9 @@ export default class MenuScroll {
     }
 
     // Init
-    this.init()
+    if (!this.customScroller) {
+      this.init()
+    }
   }
 
   init() {
