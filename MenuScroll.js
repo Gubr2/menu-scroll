@@ -40,10 +40,10 @@ export default class MenuScroll {
   }
 
   init() {
-    this.update(document.documentElement.scrollTop)
+    this.update(document.body.scrollTop)
 
     document.addEventListener('scroll', () => {
-      this.update(document.documentElement.scrollTop)
+      this.update(document.body.scrollTop)
     })
   }
 
