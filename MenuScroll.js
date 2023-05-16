@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// *** MENU SCROLL by Adrián Gubrica, v1.4 *** //
+// *** MENU SCROLL by Adrián Gubrica, v1.5 *** //
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
@@ -72,7 +72,11 @@ export default class MenuScroll {
         }
       }
     } else {
-      // [2] Remove background class
+      // [2] Remove movement class
+      if (this.movementClass) {
+        this.selector.classList.remove(this.movementClass)
+      }
+      // [3] Remove background class
       if (this.backgroundClass) {
         this.selector.classList.remove(this.backgroundClass)
       }
